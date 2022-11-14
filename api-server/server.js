@@ -44,7 +44,7 @@ app
 app
   .route('/api/list/:id')
   .get((req,res)=>{
-    client.query(`SELECT * FROM check_list WHERE task = ${req.params.id}`)
+    client.query(`SELECT * FROM check_list WHERE id = ${req.params.id}`)
     .then(result=>{
       res.status(200).set('Content-Type','application/json').send(result.rows)
     })
@@ -52,11 +52,35 @@ app
   })
 
   .patch((req,res)=>{
-
+    let list = req.body;
+    let cat = list.cat
+    let task = list.task;
+    let details = list.details;
+    let howLong = list.allotted_time_min;
+    let when = list.date_time;
+    let listAtt = [];
+    if(cat) listAtt.push("cat='"+ cat+"'")
+    if(task) listAtt.push("task='"+ task+"'")
+    if(details) listAtt.push("details='"+ details+"'")
+    if(howLong) listAtt.push("allotted_time_min="+ howLong)
+    if(when) listAtt.push("date_time="+ when)
+    if(listAtt.length>0){
+      let query = `UPDATE check_list SET ${listAtt.toString()} WHERE id = ${req.params.id} RETURNING *`
+      console.log(query)
+      client.query(query)
+      .then(result =>{
+        res.status(200).set('Content-Type','application/json').send(result.rows);
+      })
+      .catch(e=> console.error(e.stack))
+    }
   })
 
   .delete((req,res)=>{
-    client.query(`DELETE FROM check_list WHERE `)
+    client.query(`DELETE FROM check_list WHERE id = ${req.params.id} RETURNING *`)
+    .then(result =>{
+      res.status(200).set('Content-Type','application/json').send(result.rows)
+    })
+    .catch(e=> console.error(e.stack))
   })
 
 app.listen(PORT, ()=>{

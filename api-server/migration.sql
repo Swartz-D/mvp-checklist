@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS check_list;
 
 CREATE TABLE check_list (
+  id serial,
   cat varchar(25),
   task varchar(25),
   details varchar(250),
