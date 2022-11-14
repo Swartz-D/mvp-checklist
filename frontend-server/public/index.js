@@ -22,20 +22,6 @@ fetch(`${ApiUrl}/api/list`)
     }
     console.log(table)
     })
-    // data.forEach(taskItem =>{
-    //   var taskEl = document.createElement('tr')
-    //   taskEl.innerHTML = (
-    //   `<th><input type="checkbox"></th>
-    //     <td>'${data.cat}'</td>
-    //     <td>'${data.task}'</td>
-    //     <td>'${data.details}'</td>
-    //     <td>'${data.allotted_time_min}'</td>
-    //     <td>'${data.date_time}'</td>` 
-    //   )
-  //     console.log('task',taskEl)
-  //     console.log(data)
-  //   })
-  // });
 
   // var submit = document.getElementById('new').addEventListener("click", event => {
   //   let cat = document.getElementById("cat").value;
