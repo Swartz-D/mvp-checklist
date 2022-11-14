@@ -1,6 +1,6 @@
 const ENV = "dev";
 
-let ApiUrl = ENV == 'dev' ? 'http://localhost:4040' : 'https://api';
+let ApiUrl = ENV == 'dev' ? 'http://localhost:4040' : 'https://backend-6bbx.onrender.com';
 console.log('API:', ApiUrl);
 
 const table = document.querySelector('#table');
