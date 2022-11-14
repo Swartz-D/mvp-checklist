@@ -1,6 +1,6 @@
 module.exports = {
   dev: {
-      ApiUrl: "http://localhost:",
+      apiUrl: "http://localhost:",
       port: 3060
   },
   production: {
