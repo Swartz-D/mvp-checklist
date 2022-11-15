@@ -18,13 +18,26 @@
     <button id="random" type="button">Random</button><span>&nbsp;</span>
     <hr>
   </div>
-  <div>
-    <label>Category: </label><input id="cat" type="text"/><br/>
-    <label>Task: </label><input id="task" type="text"/>
-    <label>details: </label><input id="details" type="text"/>
-    <label>Allotted Time: </label><input id="time" type="text"/>
-    <label>apt Date/Time: </label><input id="when" type="text"/>
-  </div>
+  <div id="post" style="display: none">
+    <form action="submit">
+    <label>Category:
+      <input id="cat" list="category" name="myCategory" /></label>
+      <datalist id="category">
+        <option value="errands">
+        <option value="shopping list">
+        <option value="homework">
+        <option value="appointments">
+        <option value="meeting">
+        <option value="cleaning">
+      </datalist>
+    <label>Task: </label><input id="task" name="task" type="text"/>
+    <label>details: </label><input id="details" name="details" type="text"/>
+    <label>Allotted Time: </label><input id="time" name="time" type="integer"/>
+    <label>Date: </label><input id="when" name="when" placeholder="May 10 2022" type="text"/>
+    <label>Time:</label><input id="at" name="at" placeholder="1130am" type="text"/>
+        <input id="submit" type="submit" value="Submit">
+      </form>
+  </div><br>
   <div>
     <table>
       <tbody id="table">
@@ -34,15 +47,9 @@
           <th>task&nbsp;</th>
           <th>details&nbsp;</th>
           <th>alloted time&nbsp;</th>
-          <th>appt Date/Time&nbsp;</th>
+          <th>appt Date&nbsp;</th>
+          <th>appt Time&nbsp;</th>
         </tr>
-        <!-- <tr>
-          <th><input type="checkbox"></th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th> 
-        </tr> -->
       </tbody>
     </table>
   </div>
