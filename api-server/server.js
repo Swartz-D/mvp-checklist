@@ -32,12 +32,10 @@ app
 		let task = list.task;
 		let details = list.details;
 		let howLong = list.allotted_time_min;
-		let when = list.date;
-		let at = list.time;
-		console.log('hi',cat, task, details, howLong, when, at);
+		console.log('hi',cat, task, details, howLong);
 		console.log('type', typeof at, typeof when);
-		client.query(`INSERT INTO check_list (cat, task, details, allotted_time_min, date, time)
-    VALUES ('${cat}', '${task}', '${details}', ${howLong}, '${when}', '${at}') RETURNING *`)
+		client.query(`INSERT INTO check_list (cat, task, details, allotted_time_min)
+    VALUES ('${cat}', '${task}', '${details}', ${howLong}) RETURNING *`)
 			.then(result=>{
 				res.status(200).set('Content-Type', 'application/json').send(result.rows);
 			})
@@ -60,15 +58,11 @@ app
 		let task = list.task;
 		let details = list.details;
 		let howLong = list.allotted_time_min;
-		let when = list.date;
-		let at = list.at;
 		let listAtt = [];
 		if(cat) listAtt.push('cat=\''+ cat+'\'');
 		if(task) listAtt.push('task=\''+ task+'\'');
 		if(details) listAtt.push('details=\''+ details+'\'');
 		if(howLong) listAtt.push('allotted_time_min='+ howLong);
-		if(when) listAtt.push('date=\''+ when+'\'');
-		if(at) listAtt.push('time=\''+at+'\'');
 		if(listAtt.length>0){
 			let query = `UPDATE check_list SET ${listAtt.toString()} WHERE id = ${req.params.id} RETURNING *`;
 			console.log(query);

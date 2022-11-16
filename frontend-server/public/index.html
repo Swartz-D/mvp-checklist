@@ -9,14 +9,12 @@
   <title>Check List</title>
 </head>
 <body>
-  <div><h1>Your Check List</h1><h3>Count Down</h3></div>
-  <hr>
+  <div id="h1"><h1>Your Check List</h1></div>
   <div>
     <button id="new" type="button">New Task</button><span>&nbsp;</span>
-    <button id="edit" type="button">Edit Task</button><span>&nbsp;</span>
-    <button id="delete" type="button">Clear List</button><span>&nbsp;</span>
+    <!-- <button id="edit" type="button">Edit Task</button><span>&nbsp;</span> -->
+    <button id="delete" type="button">Delete</button><span>&nbsp;</span>
     <button id="random" type="button">Random</button><span>&nbsp;</span>
-    <hr>
   </div>
   <div id="post" style="display: none">
     <form action="submit">
@@ -33,25 +31,40 @@
     <label>Task: </label><input id="task" name="task" type="text"/>
     <label>details: </label><input id="details" name="details" type="text"/>
     <label>Allotted Time: </label><input id="time" name="time" type="integer"/>
-    <label>Date: </label><input id="when" name="when" placeholder="May 10 2022" type="text"/>
-    <label>Time:</label><input id="at" name="at" placeholder="1130am" type="text"/>
         <input id="submit" type="submit" value="Submit">
       </form>
   </div><br>
-  <div>
-    <table>
+  <div id="patch1" style="display: none">
+    <form action="submit">
+    <label>Category:
+      <input id="cat" list="category" name="myCategory" /></label>
+      <datalist id="category">
+        <option value="errands">
+        <option value="shopping list">
+        <option value="homework">
+        <option value="appointments">
+        <option value="meeting">
+        <option value="cleaning">
+      </datalist>
+    <label>Task: </label><input id="task" name="task" type="text"/>
+    <label>details: </label><input id="details" name="details" type="text"/>
+    <label>Allotted Time: </label><input id="time" name="time" type="integer"/>
+        <input id="patch" type="submit" value="Submit">
+      </form>
+  </div><br>
+  <div id="container">
+    <!-- <table>
       <tbody id="table">
         <tr>
           <th></th>
-          <th>category&nbsp;</th>
-          <th>task&nbsp;</th>
-          <th>details&nbsp;</th>
-          <th>alloted time&nbsp;</th>
-          <th>appt Date&nbsp;</th>
-          <th>appt Time&nbsp;</th>
+          <th>category</th>
+          <th>task</th>
+          <th>details</th>
+          <th>alloted time</th>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
+  <div class="footer"></div>
 </body>
 </html>
